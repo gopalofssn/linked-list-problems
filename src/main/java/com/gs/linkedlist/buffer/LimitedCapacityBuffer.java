@@ -2,6 +2,12 @@ package com.gs.linkedlist.buffer;
 
 import com.gs.linkedlist.node.Node;
 
+/**
+ * 
+ * @author Gopal Selvaraj
+ * buffer only can hold capacity
+ */
+
 public class LimitedCapacityBuffer {
 
   private final int capacity;
@@ -32,7 +38,7 @@ public class LimitedCapacityBuffer {
     if (currentCapacity == 0) {
       return new char[0];
     }
-    int max = currentCapacity < n ? currentCapacity : n;
+    int max = Math.min(currentCapacity ,n);
     char[] result = new char[max];
     int index = 0;
     while (index < max) {
