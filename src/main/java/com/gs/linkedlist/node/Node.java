@@ -8,6 +8,19 @@ public class Node<T> {
     this.value = value;
   }
 
+  public Node(T[] values) {
+    if(values == null || values.length == 0) {
+      throw new IllegalArgumentException("values can not be blank");
+    }
+    this.value = values[0];
+    Node<T> node = this;
+    for(int index = 1; index < values.length; index++) {
+      node.next = new Node<T>(values[index]);
+      node = node.next;
+    }
+    
+  }
+  
   @SuppressWarnings("unchecked")
   @Override
   public boolean equals(Object obj) {
@@ -31,14 +44,16 @@ public class Node<T> {
     return this.next.equals(that.next);
   }
 
-  public static void main(String[] args) {
-
-    Node<Integer> node1 = new Node<Integer>(65);
-    node1.next = new Node<Integer>(66);
-
-    Node<Character> node2 = new Node<Character>('A');
-    node2.next = new Node<Character>('B');
-
-    System.out.println(node1.equals(node2));
+  @Override
+  public String toString() {
+     StringBuilder sb = new StringBuilder();
+     Node<T> node = this;
+     while(node != null) {
+       sb.append(node.value + "->");
+       node = node.next;
+     }
+     sb.append("NULL");
+     return sb.toString();
   }
+  
 }
