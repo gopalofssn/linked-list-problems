@@ -47,14 +47,14 @@ public class AddTwoListsUsingMemoryOptimized  implements AddTwoLists{
     Node<Integer> list = list1;
     Node<Integer> prev = null;
     while (list1 != null && (list2 != null || carry != 0)) {
-      int value = list1.value + carry;
+      int value = list1.data + carry;
 
       if (list2 != null) {
-        value += list2.value;
+        value += list2.data;
         list2 = list2.next;
       }
 
-      list1.value = value % 10;
+      list1.data = value % 10;
       prev = list1;
       list1 = list1.next;
       carry = value / 10;

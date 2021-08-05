@@ -25,8 +25,8 @@ public class AddOneToList {
     Node<Integer> node = head;
     Node<Integer> prev = null;
     while(node != null) {
-      int value = node.value + carry;
-      node.value = value % 10;
+      int value = node.data + carry;
+      node.data = value % 10;
       carry = value / 10;
       prev = node;
       node = node.next;

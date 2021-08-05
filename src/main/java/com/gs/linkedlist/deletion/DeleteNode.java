@@ -9,14 +9,14 @@ public class DeleteNode {
       return head;
     }
 
-    while (head != null && head.value == valueToDelete) {
+    while (head != null && head.data == valueToDelete) {
       head = head.next;
     }
 
     Node<Integer> node = head;
     Node<Integer> prev = null;
     while (node != null) {
-      while (node != null && node.value == valueToDelete) {
+      while (node != null && node.data == valueToDelete) {
         prev.next = node.next;
         node = node.next;
       }

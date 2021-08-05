@@ -4,13 +4,16 @@ import java.util.*;
 
 public class ArrayDequeSample {
 
+	/* [ 1 2 3 3 4 5 0]
+	
+	*/
 	public static void main(String[] args) {
 		Deque<Integer> deque = new ArrayDeque<Integer>();
 		deque.add(1);
 		deque.add(2);
 		deque.add(3);
 		deque.add(3);
-		deque.offer(4);
+		deque.offer(null);
 		deque.offerLast(5);
 		deque.offerFirst(0);
 		

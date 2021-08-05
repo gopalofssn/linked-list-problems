@@ -11,6 +11,7 @@ public class FastestDequeTest {
 		FastestDeque<Integer> deque = new FastestDeque<Integer>();
 		assertTrue(deque.isEmpty());
 		assertTrue(deque.offer(1));
+		assertFalse(deque.offer(1));
 		assertFalse(deque.isEmpty());
 		assertEquals(deque.poll().toString(), "1");
 		assertTrue(deque.isEmpty());
@@ -23,9 +24,13 @@ public class FastestDequeTest {
 		assertTrue(deque.offer(1));
 		assertTrue(deque.offer(2));
 		assertFalse(deque.isEmpty());
-		assertEquals(deque.poll(), new Integer(1));
-		assertEquals(deque.poll(), new Integer("2"));
+		assertEquals(deque.poll().toString(), "1");
+		assertEquals(deque.poll().toString(), "2");
 		assertTrue(deque.isEmpty());
-	
+
+		assertTrue(deque.offer(3));
+		assertFalse(deque.isEmpty());
+		assertEquals(deque.poll().toString(), "3");
+		assertTrue(deque.isEmpty());
 	}
 }

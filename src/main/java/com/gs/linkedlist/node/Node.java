@@ -1,18 +1,18 @@
 package com.gs.linkedlist.node;
 
 public class Node<T> {
-  public T value;
+  public T data;
   public Node<T> next;
 
   public Node(T value) {
-    this.value = value;
+    this.data = value;
   }
 
   public Node(T[] values) {
     if(values == null || values.length == 0) {
       throw new IllegalArgumentException("values can not be blank");
     }
-    this.value = values[0];
+    this.data = values[0];
     Node<T> node = this;
     for(int index = 1; index < values.length; index++) {
       node.next = new Node<T>(values[index]);
@@ -29,7 +29,7 @@ public class Node<T> {
     }
 
     Node<T> that = (Node<T>) obj;
-    if (that.value != this.value) {
+    if (that.data != this.data) {
       return false;
     }
 
@@ -49,7 +49,7 @@ public class Node<T> {
      StringBuilder sb = new StringBuilder();
      Node<T> node = this;
      while(node != null) {
-       sb.append(node.value + "->");
+       sb.append(node.data + "->");
        node = node.next;
      }
      sb.append("NULL");

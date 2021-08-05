@@ -43,11 +43,11 @@ public class AddTwoListsUsingDeque implements AddTwoLists {
     int carry = 0;
     while(!big.isEmpty() && (!small.isEmpty() || carry != 0)) {
       Node<Integer> node = big.pop();
-      int value = node.value + carry;
+      int value = node.data + carry;
       if(!small.isEmpty()) {
-        value += small.pop().value;
+        value += small.pop().data;
       }
-      node.value = value % 10;
+      node.data = value % 10;
       carry = value / 10;
     }
      
